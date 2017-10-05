@@ -1,0 +1,11 @@
+p {
+  line-height: 1.2em !important;
+}
+
+p:not(:last-of-type) {
+  margin-bottom: 0.5em !important;
+}
+
+li {
+  list-style-type: square;
+}
