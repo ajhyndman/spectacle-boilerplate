@@ -1,6 +1,6 @@
 # Talk: Functional Databases
 
-## Or: Log Based Data Management
+## Or: Log-Based Data Management
 
 Slides developed with [Spectacle](https://github.com/FormidableLabs/spectacle).
 
