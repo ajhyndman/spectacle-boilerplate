@@ -14,9 +14,11 @@ Things you may have heard about, that I will try to neatly tie together in this 
 
 ### Dual Writes
 
-## Derived Data
+### Derived Data
 
-### What is it?
+Summarize, by pointing out similarities.
+
+#### What is it?
 
 ## Other paradigms
 
@@ -31,6 +33,11 @@ Things you may have heard about, that I will try to neatly tie together in this 
 ### What is a log?
 
 ### Three kinds of services
+
+### Advantages
+
+* more options for schema design
+* no write-optimised vs read-optimised tradeoff
 
 ## Can it work?
 
