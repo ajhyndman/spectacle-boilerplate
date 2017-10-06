@@ -26,7 +26,7 @@ Summarize, by pointing out similarities.
 * Functional Programming
 * Lambda Architecture
 
-## Functional Databases?
+## Immutable Databases?
 
 ### Terminology
 

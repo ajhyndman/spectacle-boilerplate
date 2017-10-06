@@ -1,4 +1,4 @@
-# Talk: Functional Databases
+# Talk: Immutable Databases
 
 ## Or: Log-Based Data Management
 

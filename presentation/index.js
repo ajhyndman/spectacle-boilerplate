@@ -61,7 +61,7 @@ export default class Presentation extends React.Component {
         {/* Title */}
         <Slide bgColor="secondary">
           <Heading size={1} fit caps lineHeight={1} textColor="primary">
-            Functional Databases
+            Immutable Databases
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" fit bold>
             Or: Log-Based Data Management
@@ -94,7 +94,7 @@ export default class Presentation extends React.Component {
             Other Software
           </Heading>
           <Heading size={4} lineHeight={1.5} textColor="tertiary">
-            Functional Databases?
+            Immutable Databases?
           </Heading>
           <Heading size={4} lineHeight={1.5} textColor="tertiary">
             Looking Forward
@@ -269,10 +269,10 @@ export default class Presentation extends React.Component {
           </Text>
         </Slide>
 
-        {/* III: Functional Databases? */}
+        {/* III: Immutable Databases? */}
         <Slide bgColor="secondary">
           <Heading size={1} fit caps lineHeight={1} textColor="tertiary">
-            Functional Databases?
+            Immutable Databases?
           </Heading>
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
