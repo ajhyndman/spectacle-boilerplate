@@ -79,7 +79,12 @@ export default class Presentation extends React.Component {
             <ListItem>
               Change Data Capture <strong>(CDC)</strong>
             </ListItem>
-            <ListItem>CQRS</ListItem>
+            <ListItem>
+              <small style={{ fontSize: '70%' }}>
+                Command Query Responsibility Segregation
+              </small>{' '}
+              <strong>(CQRS)</strong>
+            </ListItem>
             <ListItem>Lambda Architecture</ListItem>
           </List>
         </Slide>
@@ -104,10 +109,10 @@ export default class Presentation extends React.Component {
         {/* I: Databases */}
         <Slide bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="tertiary">
-            Databases
+            Regular Databases
           </Heading>
           <Text margin="10px 0 0" textColor="secondary" fit bold>
-            The State of the Art
+            The Current State of the Art
           </Text>
         </Slide>
         <Slide bgColor="primary" textColor="secondary">
@@ -128,7 +133,7 @@ export default class Presentation extends React.Component {
           <Text fit>This decision drives many difficult tradeoffs.</Text>
           <List>
             <ListItem>Normalised / Denormalised</ListItem>
-            <ListItem>Database Engine</ListItem>
+            <ListItem>Selection of database engine</ListItem>
             <ListItem>SQL / NoSQL</ListItem>
             <ListItem>Scaling strategy</ListItem>
           </List>
@@ -140,6 +145,8 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>Dual Writes</ListItem>
             <ListItem>Write on Read</ListItem>
+            <ListItem>Triggers</ListItem>
+            <ListItem>Materialised Views</ListItem>
             <ListItem>Batch Processing</ListItem>
           </List>
         </Slide>
@@ -149,7 +156,7 @@ export default class Presentation extends React.Component {
           </Heading>
           <Text textAlign="left" textSize="1em">
             This is often accomplished with batch processing services like
-            Hadoop and MapReduce
+            Hadoop and MapReduce.
           </Text>
           <List>
             <ListItem>Isolates primary data from perf hit</ListItem>
@@ -157,6 +164,11 @@ export default class Presentation extends React.Component {
             <ListItem>Deterministic</ListItem>
             <ListItem>Replayable</ListItem>
             <ListItem>Composable</ListItem>
+          </List>
+          <Text textAlign="left" textSize="1em">
+            But also:
+          </Text>
+          <List>
             <ListItem>Large investment</ListItem>
             <ListItem>Doomed to be stale</ListItem>
           </List>
@@ -179,7 +191,7 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="tertiary" lineHeight={2} fit caps>
             What's the common thread?
           </Heading>
-          <Text textAlign="left">These are all examples of Derived Data.</Text>
+          <Text textAlign="left">Maintaining "Derived Data" is hard.</Text>
           <Text textAlign="left">
             <strong>Primary Data:</strong> New data is first written here. Each
             fact should only be present once (normalised). In case of
@@ -217,13 +229,14 @@ export default class Presentation extends React.Component {
             What else can we do?
           </Heading>
           <Text textColor="primary" textAlign="left">
-            We do have examples of "streams" in other programming environments.
+            In other programming environments, we can find examples of
+            "streams".
           </Text>
           <List>
             <ListItem>UNIX</ListItem>
             <ListItem>Node</ListItem>
             <ListItem>Redux</ListItem>
-            <ListItem>Lambda Architecture</ListItem>
+            <ListItem>Functional Languages</ListItem>
           </List>
         </Slide>
         <Slide bgColor="tertiary" textColor="primary">
@@ -239,8 +252,12 @@ export default class Presentation extends React.Component {
   | head -n 5`}
           </CodePane>
           <List>
-            <ListItem>Uniform interface: "Files"</ListItem>
-            <ListItem>Separation of "logic" from "wiring"</ListItem>
+            <ListItem>
+              Uniform interface: <strong>Files</strong>
+            </ListItem>
+            <ListItem>
+              Separation of <em>logic</em> from <em>wiring</em>
+            </ListItem>
           </List>
         </Slide>
         <Slide bgColor="tertiary" textColor="primary">
@@ -296,9 +313,9 @@ export default class Presentation extends React.Component {
             <ListItem>Totally ordered</ListItem>
             <ListItem>Immutable</ListItem>
             <ListItem>Unbounded</ListItem>
-            <ListItem>Incrementally processable</ListItem>
+            <ListItem>Incrementally processed</ListItem>
             <ListItem>Durable</ListItem>
-            <ListItem>Repeatable reads</ListItem>
+            <ListItem>Reads are repeatable</ListItem>
           </List>
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
@@ -327,63 +344,10 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
           <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            Change Data Capture
-          </Heading>
-          <Text textColor="primary" textAlign="left">
-            The process of recording <em>low-level</em> value changes over time.
-            This is what many database engines do internally, and is how
-            replication is supported.
-          </Text>
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            Event Sourcing
-          </Heading>
-          <Text textColor="primary" textAlign="left">
-            An idea that originated in the DDD community, events are{' '}
-            <em>designed</em> to reflect things that happened in the application
-            domain.
-          </Text>
-        </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            What can it do?
-          </Heading>
-          <List>
-            <ListItem>Retrospective schema design</ListItem>
-            <ListItem>"Gradual Migration"</ListItem>
-            <ListItem>"Minimized Irreversibility"</ListItem>
-            <ListItem>Data Integration</ListItem>
-          </List>
-        </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            What can it do?
-          </Heading>
-          <Image bgColor="white" padding="20px" src={images.kafkaBefore} />
-        </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            What can it do?
-          </Heading>
-          <Image bgColor="white" padding="20px" src={images.kafkaAfter} />
-        </Slide>
-        <Slide bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
-            Composability
-          </Heading>
-          <Image
-            bgColor="white"
-            padding="20px"
-            src={images.kafkaComposition}
-            width="100%"
-          />
-        </Slide>
-
-        <Slide bgColor="secondary" textColor="primary">
-          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
             Scaling
           </Heading>
           <Text textColor="primary" textAlign="left">
-            Sounds great, but how can you possibly scale an{' '}
+            How can you possibly scale an{' '}
             <em>unbounded, totally ordered, immutable</em> list!
           </Text>
         </Slide>
@@ -451,6 +415,58 @@ export default class Presentation extends React.Component {
             This means that given any consensus algorithm, we can add replicas
             to a log system which can share both write <em>and</em> read load!
           </Text>
+        </Slide>
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            Change Data Capture
+          </Heading>
+          <Text textColor="primary" textAlign="left">
+            The process of recording <em>low-level</em> value changes over time.
+            This is what many database engines do internally, and is how
+            replication is supported.
+          </Text>
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            Event Sourcing
+          </Heading>
+          <Text textColor="primary" textAlign="left">
+            An idea that originated in the DDD community, events are{' '}
+            <em>designed</em> to reflect things that happened in the application
+            domain.
+          </Text>
+        </Slide>
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            What can it do?
+          </Heading>
+          <List>
+            <ListItem>Retrospective schema design</ListItem>
+            <ListItem>"Gradual Migration"</ListItem>
+            <ListItem>"Minimized Irreversibility"</ListItem>
+            <ListItem>Data Integration</ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            What can it do?
+          </Heading>
+          <Image bgColor="white" padding="20px" src={images.kafkaBefore} />
+        </Slide>
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            What can it do?
+          </Heading>
+          <Image bgColor="white" padding="20px" src={images.kafkaAfter} />
+        </Slide>
+        <Slide bgColor="secondary" textColor="primary">
+          <Heading size={6} textColor="tertiary" lineHeight={2} caps>
+            Composability
+          </Heading>
+          <Image
+            bgColor="white"
+            padding="20px"
+            src={images.kafkaComposition}
+            width="100%"
+          />
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
           <Heading size={6} textColor="tertiary" lineHeight={2} caps>
